@@ -6,17 +6,24 @@ namespace BLZLogicalPrograms
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a number to be Reversed");
+            Console.WriteLine("Enter a number ");
             int n = Convert.ToInt32(Console.ReadLine());
             int num = n;
-            int rev = 0;
-            while (n != 0)
+            int count = 0;
+            for (int a = 2; a <= n; a++)
             {
-                int d = n % 10;
-                rev = rev * 10 + d;
-                n /= 10;
+
+                if(n % a == 0 )
+                {
+                    count += 1;
+                }
             }
-            Console.WriteLine("Reverse of " + num + " is " + rev);
+            if (count > 1)
+            {
+                Console.WriteLine(num+" is not a Prime Number");
+            }
+            else
+                Console.WriteLine(num+" is a Prime Number");
         }
     }
 }
