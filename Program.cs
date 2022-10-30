@@ -7,29 +7,27 @@ namespace BLZLogicalPrograms
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Enter a number : ");
-            int num = Convert.ToInt32(Console.ReadLine());
-            int n = num;
-            int sum = 0;
+            Console.WriteLine("Enter Nth term of the Fibonacci Series : ");
+            int N = Convert.ToInt32(Console.ReadLine());
 
-            for (int i = 1; i < num; i++)
+            int a = 0;
+            int b = 1;
+            int c;
+
+            Console.WriteLine("The Fibonacci Series for "+N+" terms are :");
+            Console.WriteLine(a);
+            Console.WriteLine(b);
+
+            for (int i = 0; i < (N - 2); i++)
             {
-                if (num % i == 0)
-                {
-                    sum = sum + i;
-                }
+                c = a + b;
+                Console.WriteLine(c);
+                a = b;
+                b = c;
             }
+            Console.ReadLine();
 
-            if (sum == n)
-            {
-                Console.WriteLine(n + " is a Perfect Number");
-
-            }
-            else
-            {
-                Console.WriteLine(n + " is not a Perfect Number");
-
-            }
+        
         }
     }
 }
