@@ -5,18 +5,38 @@ class StopwatchProgram
 {
     static void Main()
     {
-        Stopwatch stopwatch = new Stopwatch();
-        Console.WriteLine("Start");
-        stopwatch.Start();
+         Random random = new Random();
 
-        for (int i = 0; i < 2000; i++)
+        static void Main(string[] args)
         {
-            Thread.Sleep(30);
+            Console.WriteLine("Enter the number of coupons to be generated : ");
+            int NoOfCoupons = Convert.ToInt32(Console.ReadLine());
+            int lengthOfCoupon = 8;
+
+            List<string> generatedCoupons = new List<string>();
+            char[] keys = "99999999".ToCharArray();
+
+
+            Console.WriteLine("Coupons Generated : ");
+            while (generatedCoupons.Count < NoOfCoupons)
+            {
+                var coupon = GenerateCoupon(keys, lengthOfCoupon);
+                if (!generatedCoupons.Contains(coupon))
+                {
+                    generatedCoupons.Add(coupon);
+                    Console.WriteLine("\t[#{0}] {1}", generatedCoupons.Count, coupon);
+                }
+            }
+            Console.WriteLine("done");
+            Console.ReadLine();
         }
 
-        Console.WriteLine("Stop");
-        stopwatch.Stop();
-
-        Console.WriteLine("Time Elapsed : {0:hh\\:mm\\:ss}", stopwatch.Elapsed);
+        string GenerateCoupon(char[] keys, int lengthOfCoupon)
+        {
+            return Enumerable
+                .Range(1, lengthOfCoupon)
+                .Select(k => keys[random.Next(0, keys.Length - 1)])
+                .Aggregate("", (e, c) => e + c);
+        }
     }
 }
