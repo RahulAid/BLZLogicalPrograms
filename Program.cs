@@ -6,24 +6,30 @@ namespace BLZLogicalPrograms
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a number ");
-            int n = Convert.ToInt32(Console.ReadLine());
-            int num = n;
-            int count = 0;
-            for (int a = 2; a <= n; a++)
-            {
 
-                if(n % a == 0 )
+            Console.WriteLine("Enter a number : ");
+            int num = Convert.ToInt32(Console.ReadLine());
+            int n = num;
+            int sum = 0;
+
+            for (int i = 1; i < num; i++)
+            {
+                if (num % i == 0)
                 {
-                    count += 1;
+                    sum = sum + i;
                 }
             }
-            if (count > 1)
+
+            if (sum == n)
             {
-                Console.WriteLine(num+" is not a Prime Number");
+                Console.WriteLine(n + " is a Perfect Number");
+
             }
             else
-                Console.WriteLine(num+" is a Prime Number");
+            {
+                Console.WriteLine(n + " is not a Perfect Number");
+
+            }
         }
     }
 }
